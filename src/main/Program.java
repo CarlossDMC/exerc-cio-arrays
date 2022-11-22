@@ -1,29 +1,38 @@
 package main;
 
-
-import entites.Colections;
+import java.util.Arrays;
+import java.util.Random;
 
 public class Program {
-	public static void main(String[] args) {
-		Colections cl = new Colections();
+	public static void main(String[] args){
 		
-		cl.RandomGenerate();
+
 		
-		System.out.println("Total pares: " + cl.totalPares(cl.a)); 
-		System.out.println("Maior valor: " + cl.maiorValor(cl.a)); 
-		System.out.println("Total iguais: " + cl.totalIguais(cl.a, cl.b)); 
-		System.out.println("Multiplicar valores: " + cl.multiplicaArrays(cl.a, cl.b));
-		System.out.println("Soma Arrays: " + cl.somaArrays(cl.a,cl.b));
-		cl.mostraDados(cl.a);
-		System.out.println("Busca: " + cl.buscaArray(cl.a, 5));
-		cl.busca(5);
+		int[] a = new int[7];
+		int[] b = new int[7];
 		
+		Random random = new Random();
+		for(int i=0 ; i<7 ; i++){
+			a[i] = random.nextInt(0, 100); 
+			b[i] = random.nextInt(0, 100); 
+		}
 		
-		
-		
-		
-		
+		System.out.println(Arrays.toString(uniao(a, b)));
 		
 	}
-
+	
+	public static int[] uniao(int[]a, int[]b) {
+		int[] c = new int[14];
+		int count = 0;
+		for(int i = 0; i<7; i++) {
+			c[i] = a[i];
+		}
+		
+		for(int i = 8; i<c.length; i++) {
+			c[i] = b[count];
+			count ++;
+		}
+		return c;
+	}
+	
 }
